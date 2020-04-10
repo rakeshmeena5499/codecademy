@@ -1,3 +1,8 @@
+"""
+The Boredless Tourist: Destination recommendation tool
+using python3 made by Rakesh Meena for Codecademy project.
+"""
+
 destinations=['Paris, France', 'Shanghai, China', 'Los Angeles, USA', 'São Paulo, Brazil', 'Cairo, Egypt']
 
 test_traveler=['Erin Wilked', 'Shanghai, China', ['hitorical site', 'art']]
@@ -63,7 +68,7 @@ def find_attractions(destination, interests):
 	return attractions_with_interests
 
 
-la_arts=find_attractions('Los Angeles, USA', ['art'])
+#la_arts=find_attractions('Los Angeles, USA', ['art'])
 
 #print(la_arts)
 
@@ -78,4 +83,5 @@ def get_attraction_for_traveler(traveler):
 
 
 smills_france=get_attraction_for_traveler(['Dereck Smill', 'Paris, France', ['monument']])
+
 print(smills_france)
