@@ -68,21 +68,18 @@ def get_end():
 # Find the routes in between given points
 def new_route(start_point=None, end_point=None):
   start_point,end_point=set_start_and_end(start_point, end_point)
-  shortest_route=get_route(start_point, end_point)
-  if shortest_route:
+  if shortest_route := get_route(start_point, end_point):
     shortest_route_string='\n'.join(shortest_route)
     print("The shortest metro route from {0} to {1} is:\n{2}".format(start_point,end_point,shortest_route_string))
   else:
     print("Unfortunately, ther is currently no path between {0} and {1} due to maintenance".format(start_point, end_point))
-  again=input("Would you like to see another route? Enter y/n: ")
-  if again == 'y':
+  if (again := input("Would you like to see another route? Enter y/n: ")) == 'y':
     show_landmarks()
     new_route(start_point, end_point)
 
 # Print the landmarks again
 def show_landmarks():
-  see_landmarks=input("Would you like to see the list of landmarks again? Enter y/n: ")
-  if see_landmarks == 'y':
+  if (see_landmarks := input("Would you like to see the list of landmarks again? Enter y/n: ")) == 'y':
     print(landmark_string)
 
 # Returns the shortest route between given points
@@ -97,8 +94,7 @@ def get_route(start_point, end_point):
         possible_route = dfs(metro_system, start_station, end_station)
         if not  possible_route:
           return None
-      route=bfs(metro_system, start_station, end_station)
-      if route:
+      if route := bfs(metro_system, start_station, end_station):
         routes.append(route)
   shortest_route=min(routes, key=len)
   return shortest_route
